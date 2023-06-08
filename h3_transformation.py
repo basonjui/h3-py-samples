@@ -2,6 +2,7 @@ import h3
 import json
 
 class H3Transformation:
+    
     @staticmethod
     def h3_to_geojson(h3_cells: set) -> str:
         # Store GeoJSON Features:
@@ -9,14 +10,14 @@ class H3Transformation:
         
         # Iterate H3 indexes and Transform into GeoJSON:
         for cell in h3_cells:
-            geometry = {
+            geojson_Geometry = {
                 "type": "Polygon", # Cell in H3 is always a GeoJSON Polygon
                 "coordinates": [list(h3.h3_to_geo_boundary(h=cell, geo_json=True))]
             }
 
-            feature = {
+            geojson_Feature = {
                 "type": "Feature",
-                "geometry": geometry,
+                "geometry": geojson_Geometry,
                 "properties": {
                     "h3_idx": cell,
                     "is_valid_cell": h3.h3_is_valid(cell),
@@ -26,7 +27,7 @@ class H3Transformation:
                 }
             }
             
-            features.append(feature)
+            features.append(geojson_Feature)
 
         # Wrap Features into a FeatureCollection:
         geojson_FeatureCollection = {
