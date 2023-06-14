@@ -4,7 +4,7 @@ import json
 class H3Transformation:
     
     @staticmethod
-    def cells_to_geojson(h3_cells: set, geometry_only=False) -> str:
+    def cells_to_geojson(h3_cells: set, include_default_properties=True, geometry_only=False) -> str:
         # Store GeoJSON Features:
         features = []
         geometries = []
@@ -25,7 +25,7 @@ class H3Transformation:
                     "center": h3.h3_to_geo(cell),
                     "area_m2": h3.cell_area(h=cell, unit="m^2"),
                     "resolution": h3.h3_get_resolution(cell)
-                }
+                } if include_default_properties else {}
             }
             
             features.append(geojson_Feature)
@@ -45,7 +45,7 @@ class H3Transformation:
         return geojson
     
     @staticmethod
-    def cell_to_geojson(h3_cell: str, include_properties=True, geometry_only=False) -> str:
+    def cell_to_geojson(h3_cell: str, include_default_properties=True, geometry_only=False) -> str:
         # Store GeoJSON Features:
         features = []
         
@@ -64,7 +64,7 @@ class H3Transformation:
                 "center": h3.h3_to_geo(h3_cell),
                 "area_m2": h3.cell_area(h=h3_cell, unit="m^2"),
                 "resolution": h3.h3_get_resolution(h3_cell)
-            } if include_properties else {}
+            } if include_default_properties else {}
         }
         
         features.append(geojson_Feature)
