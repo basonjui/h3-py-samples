@@ -4,7 +4,7 @@ import json
 class H3Transformation:
     
     @staticmethod
-    def h3cells_to_geojson(h3_cells: set, geometry_only=False) -> str:
+    def cells_to_geojson(h3_cells: set, geometry_only=False) -> str:
         # Store GeoJSON Features:
         features = []
         geometries = []
@@ -45,7 +45,7 @@ class H3Transformation:
         return geojson
     
     @staticmethod
-    def h3cell_to_geojson(h3_cell: str, include_properties=True, geometry_only=False) -> str:
+    def cell_to_geojson(h3_cell: str, include_properties=True, geometry_only=False) -> str:
         # Store GeoJSON Features:
         features = []
         
