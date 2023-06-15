@@ -29,12 +29,9 @@ class PgClient:
         return self.cur
     
     # Execution
-    def execute(self, query, commit=True):
-        if commit:
-            self.cur.execute(query)
-            self.conn.commit()
-        else:
-            self.cur.execute(query)
+    def execute(self, query):
+        self.cur.execute(query)
+        self.conn.commit()
 
     def fetchall(self, query):
         self.cur.execute(query)
