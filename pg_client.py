@@ -21,9 +21,14 @@ class PgClient:
         except(Exception, psycopg2.DatabaseError) as error:
             raise Exception(error)
 
+    # Getters
+    def connection(self):
+        return self.conn
+
     def cursor(self):
         return self.cur
     
+    # Execution
     def execute(self, query):
         self.cur.execute(query)
         self.conn.commit()
