@@ -28,7 +28,7 @@ class PgClient:
     def cursor(self):
         return self.cur
     
-    # Execution
+    # Methods
     def execute(self, query):
         self.cur.execute(query)
         self.conn.commit()
@@ -36,6 +36,9 @@ class PgClient:
     def fetchall(self, query):
         self.cur.execute(query)
         return self.cur.fetchall()
+    
+    def commit(self):
+        self.conn.commit()
 
     def close(self):
         self.cur.close()
