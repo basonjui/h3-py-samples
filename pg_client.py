@@ -1,6 +1,7 @@
 import os
 import psycopg2
 from dotenv import load_dotenv
+from inspect import cleandoc
 
 class PgClient:
     def __init__(self, database="spatial_dwh"):
@@ -13,6 +14,16 @@ class PgClient:
             "password": os.environ.get("POSTGRES_PASSWORD", None),
             "database": database,
         }
+        
+        if None in self.config.values():
+            err_msg = cleandoc(
+                f"""
+                Missing PostgreSQL configuration, please check your .env file & include all the following variables:
+                - {self.config.values()}
+                """
+            )
+            
+            raise Exception(err_msg)
         
         try: 
             self.conn = psycopg2.connect(**self.config)
