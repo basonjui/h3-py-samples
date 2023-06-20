@@ -26,8 +26,8 @@ As of now, v4.0.0 beta has been released for h3-py on pip (https://github.com/ub
 
 1. Clone this repository to your computer
 
-    ```
-    https://github.com/basonjui/h3-py.git
+    ```bash
+    git clone https://github.com/basonjui/h3-py-samples.git
     ```
 
 2. Install dependencies
