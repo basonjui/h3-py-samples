@@ -21,7 +21,7 @@ class H3Transformation:
                 "geometry": geojson_Geometry,
                 "properties": {
                     "h3_idx": cell,
-                    "is_valid_cell": h3.h3_is_valid(cell),
+                    "h3_is_valid": h3.h3_is_valid(cell),
                     "center": h3.h3_to_geo(cell),
                     "area_m2": h3.cell_area(h=cell, unit="m^2"),
                     "resolution": h3.h3_get_resolution(cell)
@@ -60,7 +60,7 @@ class H3Transformation:
             "geometry": geojson_Geometry,
             "properties": {
                 "h3_idx": h3_cell,
-                "is_valid_cell": h3.h3_is_valid(h3_cell),
+                "h3_is_valid": h3.h3_is_valid(h3_cell),
                 "center": h3.h3_to_geo(h3_cell),
                 "area_m2": h3.cell_area(h=h3_cell, unit="m^2"),
                 "resolution": h3.h3_get_resolution(h3_cell)
