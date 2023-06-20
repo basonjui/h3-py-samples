@@ -8,14 +8,14 @@ As I continue to work on H3 projects, I will keep updating this repository will 
 
 
 ## About H3
-H3 is a grid system developed by Uber and is currently open source under Apache 2 license. Grid systems are critical to geospatial data analytics, which are used to partition the Earth identifiable & quantifiable grid cells.
+H3 is a grid system developed by Uber and is currently open source under Apache 2 license. Grid systems are critical to geospatial data analytics, which are used to partition the Earth into identifiable & quantifiable grid cells.
 
 To learn more about H3:
 - [H3: Uber’s Hexagonal Hierarchical Spatial Index](https://www.uber.com/en-VN/blog/h3/)
 - [H3 Documentation](https://h3geo.org/docs/)
 - [h3-py Github](https://github.com/uber/h3-py)
 
-### Notes 
+## Notes 
 
 Due to package availability on Conda, the h3-py package being used in this repository is in version 3.7.6 (the latest H3 version is v.4). 
 
@@ -38,9 +38,9 @@ As of now, v4.0.0 beta has been released for h3-py on pip (https://github.com/ub
     $ conda create --name <env> --file requirements.txt
     ```
 
-3. You are ready. Run the notebooks (or using VSCode with Jupyter Notebook extension).
+3. You are ready. Run the notebooks (or use VSCode with Jupyter Notebook extension).
 
 
 ## License
 
-Distributed under the MIT License.
+Distributed under the MIT License. See LICENSE.
