@@ -38,7 +38,29 @@ As of now, v4.0.0 beta has been released for h3-py on pip (https://github.com/ub
     $ conda create --name <env> --file requirements.txt
     ```
 
+3. Create a .env file in the root directory, it should have the following variables:
+
+   ```
+   POSTGRES_HOST=
+   POSTGRES_PORT=
+   POSTGRES_USERNAME=
+   POSTGRES_PASSWORD=
+   ```
+
 3. You are ready. Run the notebooks (or use VSCode with Jupyter Notebook extension).
+
+
+## Descriptions
+
+### Utilities
+
+- h3_transformation: perform data transformation on H3 cells, currently only support H3 -> GeoJSON.
+- pg_client: a wrapper of psycopg2 - a Postgres database adapter for Python.
+
+### Notebooks
+
+- h3_gettingstarted: demonstrate several fundamental usages of H3 and H3Transformation.
+- h3_polyfill_administrative_pipeline: an end-to-end sample pipeline that generates H3 cells from "polyfilling" (`h3.polyfill`) an administrative geometry (MultiPolygon) from Postgres database, and then saves all H3 cells generated back into a new table in Postgres.
 
 
 ## License
