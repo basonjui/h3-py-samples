@@ -1,4 +1,6 @@
-# h3-py
+# h3-py-samples
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## About
 
@@ -6,7 +8,7 @@
 
 This repository contains sample notebooks & helper transformation functions of h3-py: Uber's H3 Hexagonal Hierarchical Geospatial Indexing System in Python. 
 
-As I continue to work on H3 projects, I will update this repository with useful H3 samples and transformation functions.
+As I continue to work on H3 projects and learn new things, I will update this repository with useful H3 samples, transformation functions, tips, and perhaps common challenges.
 
 ### H3
 
