@@ -1,7 +1,5 @@
 # h3-py
 
-[TOC]
-
 ## About
 
 ### This repository
