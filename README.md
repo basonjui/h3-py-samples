@@ -1,5 +1,7 @@
 # h3-py-samples
 
+[![Python: 3.11.3](https://img.shields.io/badge/python-3.11.3-blue.svg)](https://www.python.org/downloads/release/python-3113/)
+[![H3: v3.7.6](https://img.shields.io/badge/h3-v3.7.6-blue.svg)](https://github.com/uber/h3/releases/tag/v3.7.6)
 [![License: MIT](https://img.shields.io/github/license/basonjui/h3-py-samples)](https://github.com/basonjui/h3-py-samples/blob/main/LICENSE)
 
 ## About
@@ -18,7 +20,7 @@ To learn more about H3:
 
 - [H3: Uber’s Hexagonal Hierarchical Spatial Index](https://www.uber.com/en-VN/blog/h3/)
 - [H3 Documentation](https://h3geo.org/docs/)
-- [h3-py Github](https://github.com/uber/h3-py)
+- [h3-py](https://github.com/uber/h3-py)
 
 ## Notes 
 
@@ -30,7 +32,7 @@ As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/
 
 1. Clone this repository to your computer
 
-   ```bash
+   ```console
    git clone https://github.com/basonjui/h3-py-samples.git
    ```
 
@@ -38,7 +40,7 @@ As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/
 
    Using [Conda](https://docs.conda.io/en/latest/):
 
-   ```bash
+   ```console
    $ conda create --name <h3-py-env> --file requirements.txt
    ```
 
@@ -53,9 +55,9 @@ As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/
 
 4. You are ready, run the notebooks (or use VSCode with Jupyter Notebook extension).
 
-## Descriptions
+## Usages
 
-### Utilities
+### Python scripts
 
 - [h3_transformation](https://github.com/basonjui/h3-py-samples/blob/main/h3_transformation.py): perform data transformation on H3 cells, currently only support H3 -> GeoJSON.
 - [pg_client](https://github.com/basonjui/h3-py-samples/blob/main/pg_client.py): a wrapper of psycopg2 - a Postgres database adapter for Python.
