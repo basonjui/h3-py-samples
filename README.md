@@ -1,6 +1,6 @@
 # h3-py-samples
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/github/license/basonjui/h3-py-samples)](https://github.com/basonjui/h3-py-samples/blob/main/LICENSE)
 
 ## About
 
