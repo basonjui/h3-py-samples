@@ -36,12 +36,12 @@ As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/
    git clone https://github.com/basonjui/h3-py-samples.git
    ```
 
-2. Install dependencies using [Conda](https://docs.conda.io/en/latest/))
+2. Install dependencies using [Conda](https://docs.conda.io/en/latest/)
 
    1. Install Conda (if you haven't already):
       https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-   2. Create a new environment using the `requirements.txt` file:
+   2. Create a new Conda environment using the `requirements.txt` file:
       ```console
       $ conda create --name <h3-py-env> --file requirements.txt
       ```
