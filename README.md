@@ -36,13 +36,15 @@ As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/
    git clone https://github.com/basonjui/h3-py-samples.git
    ```
 
-2. Install dependencies
+2. Install dependencies using [Conda](https://docs.conda.io/en/latest/))
 
-   Using [Conda](https://docs.conda.io/en/latest/):
+   1. Install Conda (if you haven't already):
+      https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-   ```console
-   $ conda create --name <h3-py-env> --file requirements.txt
-   ```
+   2. Create a new environment using the `requirements.txt` file:
+      ```console
+      $ conda create --name <h3-py-env> --file requirements.txt
+      ```
 
 3. Create a .env file in the root directory, it should have the following variables:
 
@@ -65,7 +67,7 @@ As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/
 ### Notebooks
 
 - [h3_gettingstarted](https://github.com/basonjui/h3-py-samples/blob/main/h3_gettingstarted.ipynb): demonstrate several fundamental usages of H3 and H3Transformation.
-- [h3_polyfill_administrative_pipeline](https://github.com/basonjui/h3-py-samples/blob/main/h3_polyfill_administrative_pipeline.ipynb): an end-to-end sample pipeline that generates H3 cells from "polyfilling" (`h3.polyfill`) an administrative geometry (in GeoJSON::MultiPolygon) from PostgreSQL, and then saves all H3 cells generated back into a new table in the database.
+- [h3_polyfill_administrative_pipeline](https://github.com/basonjui/h3-py-samples/blob/main/h3_polyfill_administrative_pipeline.ipynb): an end-to-end sample pipeline that generates H3 cells from "polyfilling" (`h3.polyfill`) an administrative geometry from PostgreSQL, convert the administrative geometry into GeoJSON polygons, and then save the generated H3 cells into a new table in the database.
 
 ## License
 
