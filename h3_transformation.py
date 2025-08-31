@@ -1,84 +1,82 @@
 import h3
 import json
 
+
 class H3Transformation:
-    
     @staticmethod
-    def cells_to_geojson(h3_cells: set, include_default_properties=True, geometry_only=False) -> str:
-        # Store GeoJSON Features:
-        features = []
-        geometries = []
-        # Iterate H3 indexes and Transform into GeoJSON:
-        for cell in h3_cells:
-            geojson_Geometry = {
-                "type": "Polygon", # Cell in H3 is always a GeoJSON Polygon
-                "coordinates": [list(h3.h3_to_geo_boundary(h=cell, geo_json=True))]
-            }
-            geometries.append(geojson_Geometry)
+    def _build_properties(h3_cell: str) -> dict:
+        """
+        Build the properties dictionary for a given H3 cell.
+        """
+        return {
+            "h3_idx": h3_cell,
+            "h3_is_valid": h3.h3_is_valid(h3_cell),
+            "center": h3.h3_to_geo(h3_cell),
+            "area_m2": h3.cell_area(h=h3_cell, unit="m^2"),
+            "resolution": h3.h3_get_resolution(h3_cell),
+        }
 
-            geojson_Feature = {
+    @staticmethod
+    def cells_to_geojson(
+        h3_cells: set, default_properties=True, as_geometry=False
+    ) -> str:
+        """
+        Convert a set of H3 cells to GeoJSON format.
+        - If as_geometry is True, return only geometries without Feature/FeatureCollection structure.
+        """
+        if as_geometry:
+            geometries = [
+                {
+                    "type": "Polygon",
+                    "coordinates": [list(h3.h3_to_geo_boundary(h=cell, geo_json=True))],
+                }
+                for cell in h3_cells
+            ]
+            return json.dumps(geometries)
+
+        # Only build features if not as_geometry
+        features = [
+            {
                 "type": "Feature",
-                "geometry": geojson_Geometry,
-                "properties": {
-                    "h3_idx": cell,
-                    "h3_is_valid": h3.h3_is_valid(cell),
-                    "center": h3.h3_to_geo(cell),
-                    "area_m2": h3.cell_area(h=cell, unit="m^2"),
-                    "resolution": h3.h3_get_resolution(cell)
-                } if include_default_properties else {}
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [list(h3.h3_to_geo_boundary(h=cell, geo_json=True))],
+                },
+                "properties": (
+                    H3Transformation._build_properties(cell)
+                    if default_properties
+                    else {}
+                ),
             }
-            
-            features.append(geojson_Feature)
+            for cell in h3_cells
+        ]
 
-        # Wrap Features into a FeatureCollection:
-        geojson_FeatureCollection = {
-            "type": "FeatureCollection", 
-            "features": features
-        }
-        
-        # Serialize to JSON:
-        if geometry_only:
-            geojson = json.dumps(geometries)
-        else:
-            geojson = json.dumps(geojson_FeatureCollection)
-        
-        return geojson
-    
+        return json.dumps({"type": "FeatureCollection", "features": features})
+
     @staticmethod
-    def cell_to_geojson(h3_cell: str, include_default_properties=True, geometry_only=False) -> str:
-        # Store GeoJSON Features:
-        features = []
-        
-        # Iterate H3 indexes and Transform into GeoJSON:
-        geojson_Geometry = {
-            "type": "Polygon", # Cell in H3 is always a GeoJSON Polygon
-            "coordinates": [list(h3.h3_to_geo_boundary(h=h3_cell, geo_json=True))]
+    def cell_to_geojson(
+        h3_cell: str, default_properties=True, as_geometry=False
+    ) -> str:
+        """
+        Convert a single H3 cell to GeoJSON format.
+        - If geometry_only is True, return only the geometry object.
+        """
+        geometry = {
+            "type": "Polygon",
+            "coordinates": [list(h3.h3_to_geo_boundary(h=h3_cell, geo_json=True))],
         }
 
-        geojson_Feature = {
+        if as_geometry:
+            return json.dumps(geometry)
+
+        feature = {
             "type": "Feature",
-            "geometry": geojson_Geometry,
-            "properties": {
-                "h3_idx": h3_cell,
-                "h3_is_valid": h3.h3_is_valid(h3_cell),
-                "center": h3.h3_to_geo(h3_cell),
-                "area_m2": h3.cell_area(h=h3_cell, unit="m^2"),
-                "resolution": h3.h3_get_resolution(h3_cell)
-            } if include_default_properties else {}
+            "geometry": geometry,
+            "properties": (
+                H3Transformation._build_properties(h3_cell)
+                if default_properties
+                else {}
+            ),
         }
-        
-        features.append(geojson_Feature)
 
-        # Wrap Features into a FeatureCollection:
-        geojson_FeatureCollection = {
-            "type": "FeatureCollection", 
-            "features": features
-        }
-        
-        # Serialize to JSON:
-        if geometry_only:
-            geojson = json.dumps(geojson_Geometry)
-        else:
-            geojson = json.dumps(geojson_FeatureCollection)
-        
-        return geojson
+        return json.dumps({"type": "FeatureCollection", "features": [feature]})
