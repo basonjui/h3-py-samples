@@ -4,9 +4,9 @@ import json
 
 class H3Transformation:
     @staticmethod
-    def _build_properties(h3_cell: str) -> dict:
+    def _generate_h3_metadata(h3_cell: str) -> dict:
         """
-        Build the properties dictionary for a given H3 cell.
+        Generate the metadata for a given H3 cell as a dict.
         """
         return {
             "h3_idx": h3_cell,
@@ -43,7 +43,7 @@ class H3Transformation:
                     "coordinates": [list(h3.h3_to_geo_boundary(h=cell, geo_json=True))],
                 },
                 "properties": (
-                    H3Transformation._build_properties(cell)
+                    H3Transformation._generate_h3_metadata(cell)
                     if default_properties
                     else {}
                 ),
@@ -73,7 +73,7 @@ class H3Transformation:
             "type": "Feature",
             "geometry": geometry,
             "properties": (
-                H3Transformation._build_properties(h3_cell)
+                H3Transformation._generate_h3_metadata(h3_cell)
                 if default_properties
                 else {}
             ),
