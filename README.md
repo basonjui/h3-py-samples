@@ -4,17 +4,31 @@
 [![H3: v3.7.6](https://img.shields.io/badge/h3-v3.7.6-blue.svg)](https://github.com/uber/h3/releases/tag/v3.7.6)
 [![License: MIT](https://img.shields.io/github/license/basonjui/h3-py-samples)](https://github.com/basonjui/h3-py-samples/blob/main/LICENSE)
 
+> ⚠️ **Note**
+>
+> - To ensure compatibility, please use **`h3-py v3.7.6`**.  
+> - The latest release of **h3-py** can be found [here](https://github.com/uber/h3-py/releases/latest), but it may not be compatible with this repository.
+
 ## About
 
 ### This repository
 
-This repository contains sample notebooks & helper transformation functions of h3-py: Uber's H3 Hexagonal Hierarchical Geospatial Indexing System in Python. 
+This repository contains sample notebooks & helper transformation functions of h3-py: Uber's H3 Hexagonal Hierarchical Geospatial Indexing System in Python.
 
 As I continue to work on H3 projects and learn new things, I will update this repository with useful H3 samples, transformation functions, tips, and perhaps common challenges.
 
 ### H3
 
-H3 is a **Grid System** developed by Uber and is currently open source under Apache 2 license. Grid systems are critical to geospatial data analytics, which can be used to partition the Earth into identifiable & quantifiable grid cells.
+H3 is an open-source **hexagonal hierarchical geospatial indexing system** created by Uber and released under the Apache 2.0 license.  
+
+It provides a way to partition the surface of the Earth into discrete, identifiable grid cells at multiple resolutions. Unlike traditional square or rectangular grids, H3 uses primarily **hexagons** (with a few pentagons for closure), which offer more uniform adjacency and minimize edge effects.  
+
+H3 is widely used in geospatial analytics and location-based applications, enabling tasks such as:
+
+- Aggregating and visualizing geospatial data at different resolutions.  
+- Performing efficient spatial indexing and queries.  
+- Supporting large-scale geospatial data pipelines and data warehouses.  
+- Enabling real-time analytics in transportation, logistics, urban planning, and mobility platforms.
 
 To learn more about H3:
 
@@ -22,41 +36,64 @@ To learn more about H3:
 - [H3 Documentation](https://h3geo.org/docs/)
 - [h3-py](https://github.com/uber/h3-py)
 
-## Notes 
-
-Due to package availability on Conda, the h3-py package being used in this repository is in  `v3.7.6` (the latest H3 version is v.4). 
-
-As of now, `v4.0.0 beta` has been released for h3-py on pip (https://github.com/uber/h3-py#announcement-v400-beta-released). However, to use the samples in this repo, please install h3-py `v.3.7.6` as v.4.0.0 has many breaking changes in the API.
-
 ## Getting started
 
-1. Clone this repository to your computer
+### 1. Clone the repository
 
-   ```console
-   git clone https://github.com/basonjui/h3-py-samples.git
-   ```
+```console
+git clone https://github.com/basonjui/h3-py-samples.git
+```
 
-2. Install dependencies using [Conda](https://docs.conda.io/en/latest/)
+### 2. Installation
 
-   1. [Install Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) (if you haven't already):
+#### Using [Conda](https://docs.conda.io/en/latest/)
 
-   2. Create a new Conda environment (with required dependencies) using the `requirements.txt` file:
+   1. [Install Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) (if you haven't already).
+
+   2. Create a new Conda environment (with required dependencies) using the `environment.yaml` file:
+
       ```console
-      $ conda create --name <h3-py-env> --file requirements.txt
+      conda env create -f environment.yaml
       ```
 
-3. Create a .env file in the root directory, it should have the following variables:
+#### Using PIP
 
-   ```properties
-   POSTGRES_HOST=
-   POSTGRES_PORT=
-   POSTGRES_USERNAME=
-   POSTGRES_PASSWORD=
-   ```
+   1. [Install Python](https://www.python.org/downloads/) (if you haven't already).
 
-4. You are ready, run the notebooks (or use VSCode with Jupyter Notebook extension).
+   2. Create and activate a virtual environment named `h3-py`:
 
-## Usages
+      ```console
+      python -m venv h3-py
+      source h3-py/bin/activate   # On Linux/Mac
+      h3-py\Scripts\activate      # On Windows
+      ```
+
+   3. Install dependencies from `requirements.txt`:
+
+      ```console
+      pip install -r requirements.txt
+      ```
+
+### 3. Create a .env file (optional)
+
+This step is only required if you want to run the sample notebook `h3_polyfill_administrative_pipeline.ipynb`, which connects to a PostgreSQL database to fetch administrative geometries.
+
+   1. Ensure you have access to a PostgreSQL database (locally or remotely).
+
+   2. Create a `.env` file in the root directory and add your PostgreSQL connection details:
+
+      ```properties
+      POSTGRES_HOST=
+      POSTGRES_PORT=
+      POSTGRES_USERNAME=
+      POSTGRES_PASSWORD=
+      ```
+
+### 4. Run the notebooks
+
+Use Jupyter Notebook (or VSCode with Jupyter Notebook extension).
+
+## Usage
 
 ### Python scripts
 
