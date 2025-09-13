@@ -9,7 +9,7 @@ dependencies:
   - backports=1.0=pyhd8ed1ab_3
   - backports.functools_lru_cache=1.6.4=pyhd8ed1ab_0
   - bzip2=1.0.8=h3422bc3_4
-  - ca-certificates=2023.5.7=hf0a4a13_0
+  - ca-certificates=2025.8.3=hbd8a1cb_0
   - click=8.1.3=unix_pyhd8ed1ab_2
   - comm=0.1.3=pyhd8ed1ab_0
   - debugpy=1.6.7=py311ha397e9f_0
@@ -21,8 +21,8 @@ dependencies:
   - ipykernel=6.23.1=pyh736e0ef_0
   - ipython=8.14.0=pyhd1c38e8_0
   - jedi=0.18.2=pyhd8ed1ab_0
-  - jupyter_client=8.2.0=pyhd8ed1ab_0
-  - jupyter_core=5.3.0=py311h267d04e_0
+  - jupyter_client=8.6.3=pyhd8ed1ab_1
+  - jupyter_core=5.8.1=pyh31011fe_0
   - krb5=1.20.1=h69eda48_0
   - libblas=3.9.0=17_osxarm64_openblas
   - libcblas=3.9.0=17_osxarm64_openblas
@@ -43,13 +43,13 @@ dependencies:
   - ncurses=6.4=h7ea286d_0
   - nest-asyncio=1.5.6=pyhd8ed1ab_0
   - numpy=1.24.3=py311hb8f3215_0
-  - openssl=3.1.1=h53f4e23_1
+  - openssl=3.5.2=he92f556_0
   - packaging=23.1=pyhd8ed1ab_0
   - pandas=2.0.2=py311h9e438b8_0
   - parso=0.8.3=pyhd8ed1ab_0
   - pexpect=4.8.0=pyh1a96a4e_2
   - pickleshare=0.7.5=py_1003
-  - pip=23.1.2=pyhd8ed1ab_0
+  - pip=25.2=pyh8b19718_0
   - platformdirs=3.5.1=pyhd8ed1ab_0
   - prompt-toolkit=3.0.38=pyha770c72_0
   - prompt_toolkit=3.0.38=hd8ed1ab_0
@@ -66,11 +66,11 @@ dependencies:
   - pytz=2023.3=pyhd8ed1ab_0
   - pyzmq=25.1.0=py311hb1af645_0
   - readline=8.2=h92ec313_1
-  - setuptools=67.7.2=pyhd8ed1ab_0
+  - setuptools=80.9.0=pyhff2d567_0
   - six=1.16.0=pyh6c4a22f_0
   - stack_data=0.6.2=pyhd8ed1ab_0
   - tk=8.6.12=he1e0b03_0
-  - tornado=6.3.2=py311heffc1b2_0
+  - tornado=6.5.2=py311h3696347_1
   - traitlets=5.9.0=pyhd8ed1ab_0
   - typing-extensions=4.6.3=hd8ed1ab_0
   - typing_extensions=4.6.3=pyha770c72_0
@@ -79,5 +79,5 @@ dependencies:
   - wheel=0.40.0=pyhd8ed1ab_0
   - xz=5.2.6=h57fd34a_0
   - zeromq=4.3.4=hbdafb3b_1
-  - zipp=3.15.0=pyhd8ed1ab_0
+  - zipp=3.19.1=pyhd8ed1ab_0
 prefix: /Users/jay/miniconda3/envs/h3-py
